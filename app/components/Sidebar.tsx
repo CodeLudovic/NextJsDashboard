@@ -4,6 +4,7 @@ import { IoLogoReact } from "react-icons/io5";
 import { SidebarMenuItem } from "./SidebarMenuItem";
 import { IoCalculator } from "react-icons/io5";
 import { SiPagespeedinsights } from "react-icons/si";
+import { MdOutlineCatchingPokemon } from "react-icons/md";
 
 const menuOptions = [
 	{
@@ -17,6 +18,12 @@ const menuOptions = [
 		subTitle: "Counter State",
 		icon: <IoCalculator size={30} />,
 		path: "/dashboard/counter",
+	},
+	{
+		title: "Pokemons",
+		subTitle: "Pokemons Data",
+		icon: <MdOutlineCatchingPokemon size={30} />,
+		path: "/dashboard/pokemons",
 	},
 ];
 
