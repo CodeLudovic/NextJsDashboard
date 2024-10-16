@@ -11,9 +11,13 @@ interface Props {
 export const PokemonCard = ({ pokemon }: Props) => {
 	const { id, name } = pokemon;
 
+    const generateBlurDataURL = () => {
+        return "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNEM0QzRDMiIC8+PC9zdmc+";
+    };
+
 	return (
-		<div className="mx-auto right-0 mt-2 w-60">
-			<div className="bg-white rounded overflow-hidden shadow-lg">
+		<div className="mx-auto right-0 mt-2 w-60 h-90">
+			<div className="bg-white rounded overflow-hidden shadow-lg h-full">
 				<div className="flex items-center flex-col justify-center text-center p-6 bg-gray-800 border-b">
 					<Image
 						src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}
@@ -21,14 +25,17 @@ export const PokemonCard = ({ pokemon }: Props) => {
 						width={100}
 						height={100}
 						key={pokemon.id}
-					/>
+                        priority ={ false }
+                        placeholder="blur"
+                        blurDataURL={generateBlurDataURL()}			
+                        />
 					<p className="pt-2 text-lg font-semibold text-gray-50 capitalize">
 						{name}
 					</p>
 					<div className="mt-5">
 						<Link
                             prefetch
-							href={`/dashboard/pokemons/${id}`}
+							href={`/dashboard/pokemon/${id}`}
 							className="border rounded-full py-2 px-4 text-xs font-semibold text-gray-100">
 							Más información
 						</Link>
